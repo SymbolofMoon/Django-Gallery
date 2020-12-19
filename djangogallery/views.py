@@ -19,18 +19,20 @@ def show_home_page(request):
 
 
 
-def show_category_page(request, cid):
-    
-
+def show_category_page(request,cid):
+  
     print(cid)
-    cat = Category.objects.all()
 
+    cats = Category.objects.all()
 
     category = Category.objects.get(pk=cid)
+    
 
     images = Image.objects.filter(cat=category)
-    
-    data = {'images': images, 'cat': cat} 
-    print("This is Home page request")
+    data= {'images':images, 'cats':cats}
+
     return render(request, "home.html",data)
+
+    
+    
     
