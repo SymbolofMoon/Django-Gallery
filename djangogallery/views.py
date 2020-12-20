@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from myapp.models import Image, Category
 
 def this_is_about(request): 
@@ -32,6 +32,12 @@ def show_category_page(request,cid):
     data= {'images':images, 'cats':cats}
 
     return render(request, "home.html",data)
+
+
+
+
+def home(request):
+    return redirect('/home')
 
     
     
